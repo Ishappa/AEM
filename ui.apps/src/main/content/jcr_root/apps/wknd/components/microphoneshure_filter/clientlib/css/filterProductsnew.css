@@ -1,0 +1,162 @@
+*{
+    margin:0px;
+    box-sizing:border-box;
+}
+.Shure_parent_microphone{
+	display: flex;
+    flex-direction: row;
+    margin-top:150px;
+    
+
+}
+.shoping_option {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 300px;
+    margin-left: 30px;
+}
+.shopping_option p{
+
+    padding-bottom:30px;
+}
+.shoping_checkbox{
+	display: flex;
+    flex-direction: column;
+}
+.shoping_container{
+	display: flex;
+    flex-direction: column;
+}
+.resetButton{
+    
+    border-radius: 0;
+    border:2px solid;
+    border-color:#b1ff33;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background-color: #b1ff33;
+    transition-property: background-color,color;
+    transition-timing-function: ease-out;
+    transition-duration: .25s;
+    cursor: pointer;
+}
+.resetButton:hover{
+    border-radius: 0;
+    color:white;
+    border-color:#b1ff33;
+    background-color: black;
+}
+
+.color-checkboxes{
+	display: flex;
+    column-gap: 8px;
+}
+.color-checkbox input[value="6"]{
+    background: black;
+    
+}
+.color-checkbox input[value="7"]{
+    
+    background: grey;
+}
+.color-checkbox input[value="9"]{
+    background: silver;
+    
+}
+.color-checkbox input[type="checkbox"]{
+	-webkit-appearance: none;
+    width: 24px;
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    border-radius: 50%;
+    position:relative;
+    outline:1px solid black;
+    outline-offset:2px;
+}
+
+.color-checkbox input[type="checkbox"]::before{
+	content: "\2713";
+    inset: 0;
+    color: #5454de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin:center;
+    transition:transform 500ms ease;
+    transform:scale(0);
+    
+}
+.color-checkbox input[type="checkbox"]:checked::before{
+ transform:scale(1);
+}
+
+@media only screen and (max-width:1025px){
+}
+
+.price_filter{
+    display:inline-block;
+    width: 100%;
+}
+#priceRange {
+    display: block;
+    width: 100%;
+    position: relative;
+  	margin: 20px auto;
+}
+
+
+#minPrice,
+#maxPrice {
+  font-weight: bold;
+  color: #333;
+}
+
+.ui-slider-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b1ff33;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+
+.ui-slider-range {
+  	
+    margin-top: 33px;
+    left: 0%;
+    width: 100%;
+    display: inline;
+    position: absolute;
+    border: 1px solid;
+}
+
+.ui-slider-handle{
+	display: block;
+    left: 0%;
+    position: absolute;
+}
+
+.prod_sorting{
+	display:flex;
+    display: flex;
+    min-width: 1100px;
+    width: 0;
+    margin-left: 100px;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 15px;
+	
+}
+
+#sortingDropdown{
+
+    padding: 10px 0 10px 15px;
+    margin-right: 37px;
+}
+
+.prod_main_container{
+    
+}
+

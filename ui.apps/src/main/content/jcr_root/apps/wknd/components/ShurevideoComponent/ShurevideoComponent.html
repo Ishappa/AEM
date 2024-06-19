@@ -1,0 +1,14 @@
+<div data-sly-use.compo="com.adobe.aem.guides.wknd.core.models.ShureVideoComponent">
+    <div data-sly-test="${compo.path=='phone'}">
+         <div class="video-container" style="margin: 50px;margin-top:20px;">
+              <iframe width="100%" height="auto" src="${compo.mobilepath}?autoplay=1&rel=0&mute=1" title="Shure - Sound Extraordinary" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+         </div>
+    </div>
+    <div data-sly-test="${compo.path=='laptop'}">
+        <div class="video-container" style="margin: 50px;margin-top:20px;">
+            <iframe width="100%" height="360" src="${compo.laptoppath}?autoplay=1&rel=0&mute=1" title="Shure - Sound Extraordinary" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+</div>

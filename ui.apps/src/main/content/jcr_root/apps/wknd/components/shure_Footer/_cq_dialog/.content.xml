@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Deatils"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <tab1LinkLists
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Content of Products"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        name="./sub">
+                        <items jcr:primaryType="nt:unstructured">
+                            <multifield
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./fields1">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Enter the Heading"
+                                            name="./title"/>
+                                        <multifieldNested
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true"
+                                            fieldLabel="List of Products">
+                                            <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./fields2">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <productName
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Product Name"
+                                                        name="./prod"/>
+                                                    <path
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Path"
+                                                        name="./path"/>
+                                                </items>
+                                            </field>
+                                        </multifieldNested>
+                                    </items>
+                                </field>
+                            </multifield>
+                        </items>
+                    </tab1LinkLists>
+                    <tab2Subscribe
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Subscribe Content"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        name="./list">
+                        <items jcr:primaryType="nt:unstructured">
+                            <subscribeTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Subscribe Heading"
+                                name="./stitle"/>
+                            <multifield_Icon
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Social Links">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./fields3">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <logo
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                            fileReferenceParameter="./fileReference"
+                                            mimeTypes="image/gif,image/png,image/jpeg"
+                                            name="./file"
+                                            title="Upload Image Asset"/>
+                                        <path
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Path"
+                                            name="./path"/>
+                                        <iconName
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Name of Icon(Lower Case)"
+                                            name="./iname"/>
+                                    </items>
+                                </field>
+                            </multifield_Icon>
+                        </items>
+                    </tab2Subscribe>
+                    <tab3FinalFooter
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Final footer"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        name="./final">
+                        <items jcr:primaryType="nt:unstructured">
+                            <logo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                fieldLabel="Upload logo here"
+                                fileReferenceParameter="./fileReference"
+                                mimeTypes="image/gif,image/png,image/jpeg"
+                                name="./file"/>
+                            <copyright
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="CopyRight"
+                                name="./cr"/>
+                        </items>
+                    </tab3FinalFooter>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

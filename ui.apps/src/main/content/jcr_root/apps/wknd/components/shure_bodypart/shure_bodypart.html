@@ -1,0 +1,28 @@
+
+<sly data-sly-use.template = "core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${Resource.getChildren}">
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='shure'}" /> 
+  </sly>
+
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ShureComponet">
+	<heading style="text-align:center;">
+    	<h1 style="font-size:20px;margin: 13px 0px;">${model.categorytitle}</h1>
+    </heading>
+    <div class="Sub-gallery">
+        <div data-sly-repeat="${model.categories}" class="items">
+           
+           <div class="sub-category-row">
+                <img src="${item.fileReference}">
+               		 <a href="${item.linkpath}" class="img_title" target=_blank;>
+                     	<h1>${item.linklabel}</h1>
+                     </a>
+            </div>
+            
+        </div>
+        
+    </div>
+ 
+</sly>
+</sly>
+<sly data-sly-call = "${template.placeholder @ isEmpty=!empty}"></sly>
+  

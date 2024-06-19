@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Tabs-Dialog"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="tabsValidate">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <tabsList
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab-List"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <tabsinfo
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Author-List">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <tab1
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Author1"
+                                        value="author1"/>
+                                    <tab2
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Author2"
+                                        value="author2"/>
+                                    <tab3
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Author3"
+                                        value="author3"/>
+                                    <tab4
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Author4"
+                                        value="author4"/>
+                                    <tab5
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Author5"
+                                        value="author5"/>
+                                </items>
+                            </tabsinfo>
+                        </items>
+                    </tabsList>
+                    <tab1
+                        granite:class="hide list-option-listfrom-showhide-target"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author1"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Location"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            isTab="{Boolean}true"
+                            showhidetargetvalue="author1"
+                            tab-id="author1"/>
+                    </tab1>
+                    <tab2
+                        granite:class="hide list-option-listfrom-showhide-target"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author2"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Location"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            isTab="{Boolean}true"
+                            showhidetargetvalue="author2"
+                            tab-id="author2"/>
+                    </tab2>
+                    <tab3
+                        granite:class="hide list-option-listfrom-showhide-target"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author3"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Location"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            isTab="{Boolean}true"
+                            showhidetargetvalue="author3"
+                            tab-id="author3"/>
+                    </tab3>
+                    <tab4
+                        granite:class="hide list-option-listfrom-showhide-target"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author4"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Location"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            isTab="{Boolean}true"
+                            showhidetargetvalue="author4"
+                            tab-id="author4"/>
+                    </tab4>
+                    <tab5
+                        granite:class="hide list-option-listfrom-showhide-target"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author5"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"/>
+                            <location
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Location"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            isTab="{Boolean}true"
+                            showhidetargetvalue="author5"
+                            tab-id="author5"/>
+                    </tab5>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

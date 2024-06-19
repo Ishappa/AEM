@@ -1,0 +1,104 @@
+<sly data-sly-use.template = "core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.fileReference}">
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientLib.css @ categories='shure_header_clientlib'}" />
+</sly>
+
+<header id="Shure_header">
+<sly data-sly-use.obj="com.adobe.aem.guides.wknd.core.models.ShureHeader"></sly>
+<div class="header_top">
+
+	<button class="mobile_menu_btn">
+       <img src="${obj.mobileMenu}" height="26"  width="23">
+    </button>
+    
+
+   <div class="logo">
+        <a href="#"><img src="${obj.fileReference}" width="150px" style="cursor:pointer;"></a>
+   </div>
+   
+   <div class="search"  style="position:relative">
+      <div class="search_bar">
+        <input class="search_field" type="text" placeholder="${obj.searchbar}" width="500px">
+       </div>
+       <div class="search_button" style="position:absolute;right:3px;top:3px" >
+        <button class="ButtonSearch svg_style" style="background: none;border: none;">
+            <svg fill="black" width="24" height="24" style="margin-top: 6px;margin-right: 3px;">
+               <path d="${obj.searchBtn}"></path>
+             </svg>
+        </button>
+       </div>
+   </div>
+   
+   
+   
+   
+   
+    <div class="add_to_cart_header">
+        <button class="svg_style">
+              <svg width="24" height="24" >
+              <path id="cartIcon" onclick="toggleCart()" d="${obj.addToCart}" fill="white"></path>
+              </svg>
+        </button>
+    </div>
+    
+    
+    
+    <div id="cartDetails">
+            <div id="small"></div>
+            <strong id="heading_cart">Shopping Cart</strong>
+            
+            <p id="product">There are no products in cart.</p>
+           <hr width="100%" size="4" style="margin: 0px;">
+            <div id="order">
+                <b>Order total</b>
+                <b>&#8377;0.00</b>
+            </div>
+            <hr width="100%" size="4" style="margin: 0px;">
+            <div id="butting">
+            <button class="button" onclick="viewCart()"><b>View Cart</b></button>
+            <button class="button2" onclick="securityCheck()" style="width: 80%;"><b>Security Checkout</b></button>
+            </div>
+	</div>
+    
+    
+    
+    
+    <div class="wishlist">
+        <button class="svg_style">
+           <svg height="24" width="24" >
+                <path d="${obj.wishlist}" fill="white"></path>
+              </svg>
+        </button>
+    </div>
+   
+    <div class="sign_in">
+      <!--  sign in button  call component -->
+        <button class="sign_in_button svg_style" >
+           <svg width="18" height="18">
+               <path d="${obj.signInPath}" fill="white"></path>
+            </svg>
+            <span style="color:white">${obj.signIn}</span>
+        </button>
+    </div>
+</div>
+
+<div class="header_bottom" style="height: 50px;">
+   <div class="display_inline_all">
+      <div class="nav_prod" data-sly-repeat.multifielditem="${obj.field1}">
+          <a class="green_underline" href="${multifielditem.link}" target="_blank" style="padding-bottom:5px"><span class="nav_prod_span">${multifielditem.prod}</span> </a>
+          <div data-sly-list.items="${multifielditem.field2}" class="nav_prod_menu">
+             <div class="nav_prod_items">
+               <a href="${items.prodLink}" target="_blank"><span class="nav_prod_span" >${items.prodItem}</span></a>
+             </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+</header>
+
+
+<sly data-sly-call="${clientLib.js @ categories='shure_header_clientlib'}" />
+
+</sly>
+<sly data-sly-call = "${template.placeholder @ isEmpty=!empty}"></sly>

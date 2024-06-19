@@ -1,0 +1,7 @@
+{
+  "test_Junit": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "wknd/components/test_Junit",
+    "name": "Jane Doe"
+  }
+}

@@ -1,0 +1,27 @@
+
+  <style>
+    .parsys_column-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px; 
+    }
+
+    .parsys_inner {
+        width: 20%; 
+        margin-bottom: 20px; 
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+    }
+</style>
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${resource.getChildren}"></sly>
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ParsysCompo">
+    <div class="parsys_column-container">
+
+        <div class="parsys_inner" data-sly-repeat="${model.a}">
+             <div data-sly-resource="${item @resourceType='wcm/foundation/components/parsys'}"></div>
+        </div>
+    </div>
+</div>
+ <sly data-sly-call="${template.placeholder  @ isEmpty=!empty}" ></sly>

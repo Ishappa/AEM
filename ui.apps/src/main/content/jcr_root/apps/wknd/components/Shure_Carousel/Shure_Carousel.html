@@ -1,0 +1,257 @@
+<style>
+
+
+.carousel-container {
+    position: relative;
+    width: 102%;
+    margin-left:-15px;
+    overflow: hidden;
+    margin-top:115px;
+    
+    
+  }
+
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in;
+  }
+
+  .carousel-item {
+    min-width: 100%;
+  }
+
+  .carousel_img {
+    width: 100%;
+    height: 580px;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  .prev {
+    left: 35px;
+    color: rgb(177 255 51);
+  }
+
+  .next {
+    right: 35px;
+    color: rgb(177 255 51);
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .dot {
+    height: 4px;
+    width: 4px;
+    margin: 0 15px;
+    margin-bottom:10px;
+    background-color: white;
+    border-radius: 90%;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: black;
+  }
+  @media only screen and (max-width: 768px) {
+    .carousel-container {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+    }
+
+    .carousel_img {
+      height: auto;
+      max-width: 100%;
+    }
+    .dot {
+    height: 2px;
+    width: 2px;
+    margin: 0 15px;
+    margin-bottom:10px;
+    background-color: white;
+    border-radius: 90%;
+    cursor: pointer;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 34%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 8px;
+    background: none;
+    border: none;
+}
+}
+
+</style>
+
+
+
+
+
+
+<sly data-sly-use.template = "core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${Resource.getChildren}">
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='custom'}" /> 
+  </sly> 
+
+
+<sly data-sly-use.stateMultifield="com.adobe.aem.guides.wknd.core.models.ShureCarouselMultifield">
+  <div class="carousel-container">
+    <div class="carousel" id="myCarousel">
+      <sly data-sly-list.state="${stateMultifield.filed}">
+        <div class="carousel-item">
+          <a href="${state.link}" target="_blank"><img class="carousel_img" src="${state.file}"></a>
+        </div>
+      </sly>
+    </div>
+
+    <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</sly>
+</sly> 
+
+
+
+<script>
+let currentIndex = 0;
+const intervalTime = 5000;
+let touchStartX = 0;
+let touchEndX = 0;
+let autoplayTimeout;
+
+console.log("hello");
+
+function showSlide(index) {
+  const carousel = document.querySelector('.carousel');
+  const totalItems = document.querySelectorAll('.carousel-item').length;
+
+  if (index >= totalItems) {
+    index = 0;
+  } else if (index < 0) {
+    index = totalItems - 1;
+  }
+
+  currentIndex = index;
+
+  const width = document.querySelector('.carousel-item').offsetWidth;
+  const newTransformValue = -currentIndex * width + 'px';
+  carousel.style.transform = 'translateX(' + newTransformValue + ')';
+
+  updateDots(currentIndex);
+}function showSlide(index) {
+  const carousel = document.querySelector('.carousel');
+  const totalItems = document.querySelectorAll('.carousel-item').length;
+
+  if (index >= totalItems) {
+    index = 0;
+  } else if (index < 0) {
+    index = totalItems - 1;
+  }
+
+  currentIndex = index;
+
+  const width = document.querySelector('.carousel-item').offsetWidth;
+  const newTransformValue = -currentIndex * width + 'px';
+  carousel.style.transform = 'translateX(' + newTransformValue + ')';
+
+  updateDots(currentIndex);
+}
+
+
+function prevSlide() {
+  stopAutoPlay(); // Stop autoplay when manually navigating
+  showSlide(currentIndex - 1);
+  setTimeout(() => autoPlay(), 5000); // Resume autoplay after a delay
+}
+
+function nextSlide() {
+  stopAutoPlay(); // Stop autoplay when manually navigating
+  showSlide(currentIndex + 1);
+  setTimeout(() => autoPlay(), 5000); // Resume autoplay after a delay
+}
+
+
+function handleTouchStart(event) {
+  touchStartX = event.touches[0].clientX;
+}
+
+function handleTouchEnd(event) {
+  touchEndX = event.changedTouches[0].clientX;
+  handleSwipe();
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const swipeDifference = touchStartX - touchEndX;
+
+  if (swipeDifference > swipeThreshold) {
+    nextSlide();
+  } else if (swipeDifference < -swipeThreshold) {
+    prevSlide();
+  }
+}
+
+function autoPlay() {
+  autoplayTimeout = setTimeout(function () {
+    nextSlide();
+    autoPlay();
+  }, intervalTime);
+}
+
+function stopAutoPlay() {
+  clearTimeout(autoplayTimeout);
+}
+
+function createDots() {
+  const totalItems = document.querySelectorAll('.carousel-item').length;
+  const dotsContainer = document.getElementById('carouselDots');
+
+  for (let i = 0; i < totalItems; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.setAttribute('data-index', i);
+    dot.addEventListener('click', function () {
+      stopAutoPlay(); // Stop autoplay when manual navigation occurs
+      showSlide(i);
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  updateDots(currentIndex);
+}
+
+function updateDots(index) {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+document.querySelector('.carousel-container').addEventListener('touchstart', handleTouchStart);
+document.querySelector('.carousel-container').addEventListener('touchend', handleTouchEnd);
+
+createDots();
+autoPlay();
+</script> 

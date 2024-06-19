@@ -1,0 +1,31 @@
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.fname}">
+
+    First Name::${properties.fname}<br>
+    Last Name::${properties.lname}<br>
+		<h3>Books List</h3>
+        <sly data-sly-list.multi1="${resource.getChildren}">
+            <sly data-sly-test="${multi1.name=='books'}" data-sly-list.multi2="${multi1.getChildren}">
+
+                <h5>${multi2.bookname}</h5>
+
+            </sly>
+        </sly>
+		<hr>
+
+            <h3>Books Details</h3>
+        <sly data-sly-list.multi1="${resource.getChildren}">
+            <sly data-sly-test="${multi1.name=='bookdetails'}" data-sly-list.multi2="${multi1.getChildren}">
+
+                <h5>Book Name: ${multi2.bookname}</h5>
+                <h5>Subject: ${multi2.booksubject}</h5>
+                <h5>Year: ${multi2.year}</h5><br>
+
+            </sly>
+        </sly>
+
+
+</sly>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!empty}"></sly>
+

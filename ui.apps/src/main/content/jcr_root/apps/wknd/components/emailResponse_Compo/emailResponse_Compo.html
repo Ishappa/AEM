@@ -1,0 +1,68 @@
+
+<script>
+    function submitForm(event) {
+
+        event.preventDefault();
+
+
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+
+        // AJAX call
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/bin/sendmailtousers', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Update a specific element with the response
+                    document.getElementById('responseMessage').innerHTML = xhr.responseText;
+                } else {
+                    // Handle the error scenario
+                    document.getElementById('responseMessage').innerHTML = 'Error sending email.';
+                }
+            }
+        };
+
+        // Prepare data for the POST request
+        var formData = 'name=' + encodeURIComponent(name) +
+            '&email=' + encodeURIComponent(email) +
+            '&subject=' + encodeURIComponent(subject) +
+            '&message=' + encodeURIComponent(message);
+
+        // Send the request
+        xhr.send(formData);
+    }
+</script>
+
+<form id="contactForm" onsubmit="submitForm(event);">
+    <h2>${properties.headline}</h2>
+    <p>${properties.description}</p>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
+    <br>
+
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <br>
+
+
+    <input type="submit" value="Submit">
+</form>
+
+
+<div id="responseMessage"></div>

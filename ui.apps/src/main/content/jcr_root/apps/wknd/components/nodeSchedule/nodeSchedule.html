@@ -1,0 +1,20 @@
+
+<sly data-sly-use.NodesModel="com.adobe.aem.guides.wknd.core.models.NodeData_Fetch">
+
+    <h2>Content Nodes</h2>
+   
+    <ul>
+        <sly data-sly-list.node="${contentNodesModel.nodes}">
+            <li>
+                <h3>${node.name}</h3>
+                <dl>
+                    <sly data-sly-list.property="${node.properties.entrySet}">
+                        <dt>${property.key}</dt>
+                        <dd>${property.value}</dd>
+                    </sly>
+                </dl>
+            </li>
+        </sly>
+    </ul>
+
+</sly>

@@ -1,0 +1,101 @@
+
+<sly data-sly-use.template = "core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${Resource.getChildren}">
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='ShureFooter1.wknd'}" /> 
+  </sly> 
+
+<sly data-sly-use.multi="com.adobe.aem.guides.wknd.core.models.ShureFooter"></sly>
+
+<div class="border_container"></div>
+<div class="main_container">
+
+	<sly data-sly-list.multi1="${multi.fields1}" >
+	
+		<div class="child_container">
+			
+			<h3>${multi1.title}</h3>
+    
+		<sly data-sly-list.multi2="${multi1.fields2}">
+			<a href="${multi2.path1}" target="_blank"> ${multi2.prod} </a>
+		</sly>
+
+	 	</div>
+ 
+	</sly>
+    
+      <div class="contact_container">
+      
+    	 <h3> <a href="${multi.path}" target=_blank>${multi.contact}</a></h3>
+       
+       <div class="contact_mail">
+         <a class="mail">${multi.email}</a>
+         </div>
+   		  
+          
+	  </div>
+      
+	
+   
+
+	<div class="subscribe_container">
+    
+		<h3>${multi.stitle}</h3>
+    
+    
+	<form id="subscribeForm">
+    <div class="form_item">
+    	
+        <div class="mail_icon">
+        	<a href="${multi.mailPath}"><img src="${multi.mailIcon}"/> </a>
+        </div>
+    	
+		<input class="input_container" placeholder="Enter your email" type="email" id="emailInput" required/>
+    	<button class="button_container" type="submit" onclick="validateForm()">SUBMIT</button><br>
+    </div>
+    
+     	<h5 id="errorMessage">This field is required!</h5>
+        <span class="valid_email"></span>
+	</form>
+    
+      <div class="icon_wrapper">
+           <sly data-sly-list.icon="${multi.fields3}">
+
+             <a href="${icon.path}" class="icons" target=_blank> <img src="${icon.fileReference}" /></a> 
+
+           </sly>
+       </div>
+   </div>
+  
+</div>
+
+
+<div class="cr_container">
+<img src="${multi.fileReference}" />
+<p>${multi.cr}</p>
+</div>
+
+
+</sly>
+<sly data-sly-call = "${template.placeholder @ isEmpty=!empty}"></sly>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+
+//we can directly use in variable,scss file or can create in new file
+@font-face {
+    font-family: "OstrichProper-Bold";
+    src: url('../resources/fonts/ostrich-fonts/OstrichProper-Bold.otf') format("truetype");
+ }
+
+ @font-face {
+     font-family: "OstrichProperInline";
+     src: url('../resources/fonts/ostrich-fonts/OstrichProperInline-Open.otf') format("truetype");
+  }
+
+@font-face {
+    font-family: "dpt55";
+    src: url('../resources/fonts/ostrich-fonts/dpt55.otf') format("truetype");
+ }
+
+ @font-face {
+     font-family: "dpt75";
+     src: url('../resources/fonts/ostrich-fonts/dpt75.otf') format("truetype");
+  }
+
+  @font-face {
+      font-family: "kfol";
+      src: url('../resources/fonts/ostrich-fonts/KFOlCnqEu92Fr1MmEU9fBBc4.woff2') format("truetype");
+   }
+
+   @font-face {
+       font-family: "kfom";
+       src: url('../resources/fonts/ostrich-fonts/KFOmCnqEu92Fr1Mu4mxK.woff2') format("truetype");
+    }
+
+
+
+
+// $font-family: "OstrichProper-Bold"; //variable creation
+

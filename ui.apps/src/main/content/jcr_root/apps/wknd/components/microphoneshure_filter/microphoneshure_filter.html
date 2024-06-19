@@ -1,0 +1,75 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.css @ categories='shure.microphonesnew'}" /> 
+</sly>
+
+		
+<div class="Shure_parent_microphone">		
+    <div class="shoping_option">
+        <div class="shoping_container">
+            <p>Shopping Options</p>
+            <button id="resetFilterButton" class="resetButton">Reset Filter</button>
+            <span>Category</span>
+            <span id="categoryTag"></span>
+            
+        </div>
+        
+        <div class="shoping_checkbox">
+            <label><input type="checkbox" name="queryType" value="10"> Wired</label>
+            <label><input type="checkbox" name="queryType" value="12"> Wireless</label>
+            <label><input type="checkbox" name="queryType" value="11"> Motiv Wired</label>
+        </div class="color_checkbox_container">
+        <span>Color</span>
+        <div>
+        <div class="color-checkboxes">
+            <div class="color-checkbox">
+                    <input type="checkbox" name="color" value="6">
+                    
+                </div>
+                <div class="color-checkbox">
+                    <input type="checkbox" name="color" value="7">
+                    
+                </div>
+                <div class="color-checkbox">
+                    <input type="checkbox" name="color" value="9">
+                    
+                </div>
+            </div>
+        <div class="price_filter">
+            <div id="priceRange">
+            <span id="minPrice">2000</span>
+            <span id="maxPrice">60000</span>
+            
+            </div>
+          	
+        </div>
+        </div>
+    </div>
+    
+    <div id="shure_top"></div>
+    <div id="shure_filters"></div>
+    <div id="shure_sort"></div>
+    
+   
+ <div class="prod_main_container">
+
+   <div class="prod_sorting">
+    <p id="totalCount"></p>
+			<select id="sortingDropdown">
+            	<option value="defaults" selected>Select Sorting Option</option>
+                <option value="atoz">Sort by Name (A to Z)</option>
+                <option value="ztoa">Sort by Name (Z to A)</option>
+                <option value="lowtohigh">Sort by Price (Low to High)</option>
+                <option value="hightolow">Sort by Price (High to Low)</option>
+            </select>
+	
+</div>	
+
+  <div id="products_Details"></div>
+ </div>
+   
+    
+    
+    <sly data-sly-call="${clientlib.js @ categories='shure.microphonesnew'}" />
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
