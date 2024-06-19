@@ -24,7 +24,7 @@ public class UserOne_ImpleTest {
         when(bundleContext.getServiceReference(UserOne_Imple.User.class)).thenReturn(serviceReference);
         when(bundleContext.getService(serviceReference)).thenReturn(config);
 
-        // Create instance of UserOne_Imple and activate
+        // Create instance of UserOne_Implement and activate
         userOneImple = new UserOne_Imple();
         userOneImple.activate(config);
     }
