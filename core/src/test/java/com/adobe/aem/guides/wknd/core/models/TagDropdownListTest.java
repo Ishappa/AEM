@@ -23,7 +23,6 @@ public class TagDropdownListTest {
 
     @BeforeEach
     void setUp() {
-        // Create a mock resource with the required properties
         context.build()
                 .resource(RESOURCE_PATH, "selectedTag", (Object[]) SELECTED_TAGS)
                 .commit();
@@ -31,11 +30,9 @@ public class TagDropdownListTest {
 
     @Test
     void testGetSelectedTags() {
-        // Get the resource and adapt it to the model
         Resource resource = context.resourceResolver().getResource(RESOURCE_PATH);
         TagDropdownList model = resource.adaptTo(TagDropdownList.class);
 
-        // Ensure the model is not null
         assertNotNull(model);
 
         List<String> expectedTags = Arrays.asList("tagValue1", "tagValue2");

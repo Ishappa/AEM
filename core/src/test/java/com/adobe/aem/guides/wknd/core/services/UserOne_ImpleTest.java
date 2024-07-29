@@ -15,16 +15,13 @@ public class UserOne_ImpleTest {
 
     @BeforeEach
     void setUp() {
-        // Mock BundleContext and ServiceReference
         BundleContext bundleContext = mock(BundleContext.class);
         ServiceReference<UserOne_Imple.User> serviceReference = mock(ServiceReference.class);
         UserOne_Imple.User config = getMockConfig();
 
-        // Mock behavior for BundleContext and ServiceReference
         when(bundleContext.getServiceReference(UserOne_Imple.User.class)).thenReturn(serviceReference);
         when(bundleContext.getService(serviceReference)).thenReturn(config);
 
-        // Create instance of UserOne_Implement and activate
         userOneImple = new UserOne_Imple();
         userOneImple.activate(config);
     }

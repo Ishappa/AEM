@@ -21,22 +21,17 @@ public class TagDropdownModelTest {
 
     @BeforeEach
     void setUp() {
-        // Create a mock resource with the required properties
         context.build()
                 .resource(RESOURCE_PATH, "selectedTag", SELECTED_TAG)
                 .commit();
     }
-
     @Test
     void testGetSelectedTag() {
-        // Get the resource and adapt it to the model
         Resource resource = context.resourceResolver().getResource(RESOURCE_PATH);
         TagDropdownModel model = resource.adaptTo(TagDropdownModel.class);
 
-        // Ensure the model is not null
         assertNotNull(model);
 
-        // Verify the behavior of the model
         assertEquals("tagValue", model.getSelectedTag());
     }
 }
